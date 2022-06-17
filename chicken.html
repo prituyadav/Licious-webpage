@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy now!!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="common.css">
+    <style>
+              
+      #products{
+    display: grid;
+    grid-template-columns: repeat (3,1fr);
+    grid-template-rows: auto;
+    gap:20px;
+     }
+
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+
+    <div id="for-filter"></div>
+
+    <div id="products"> </div>
+
+    <div id="joinnow"></div>
+    <div id="main-footer"></div>
+</body>
+</html>
+
+
+<script type="module" >
+
+    import head from "./components/header.js"
+    document.getElementById("header").innerHTML=head();
+
+    import fill from "./components/filter.js"
+    document.getElementById("for-filter").innerHTML=fill();
+
+    import foot from "./components/footer.js"
+    document.getElementById("main-footer").innerHTML=foot();
+
+    import joinfun from "./components/joinfunc.js"
+    document.getElementById("joinnow").innerHTML=joinfun();
+
+let data=[{
+    img:"https://th.bing.com/th/id/OIP.f5uf9CfjeOeN46oXp5Su-gHaE7?w=259&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+    name:"Fresh chicken",
+    dis:"this is best and fresh",
+    price:399,
+    quantity:"450gm",
+    
+},
+{
+    img:"https://th.bing.com/th/id/OIP.QVrJDna-JH4XjuOAe8gKAQHaFz?w=259&h=203&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+    name:"gill check chicken",
+    dis:"just buy it now",
+    price:287,
+    quantity:"850gm",
+    
+},
+{
+    img:"https://th.bing.com/th/id/OIP.nK_FrYursw4bEM94vxk6sAHaE8?w=304&h=203&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+    name:" chicken",
+    dis:" best and fresh",
+    price:900,
+    quantity:"950gm",
+    
+},
+{
+    img:"https://th.bing.com/th/id/OIP.6SLUuN1cJYhzrAlM0hElNwHaFi?w=257&h=192&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+    name:"Fresh fish",
+    dis:"Pure from sea,best and fresh",
+    price:334,
+    quantity:"150gm",
+    
+},
+// {
+//     img:"https://th.bing.com/th/id/OIP.SGr9L_tWQQNVWTeDTxDN5wHaFW?w=272&h=198&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+//     name:"Fresh chicken",
+//     dis:"this is best and fresh",
+//     price:122,
+//     quantity:"50gm",
+    
+// },
+// {
+//     img:"https://th.bing.com/th/id/OIP.f5uf9CfjeOeN46oXp5Su-gHaE7?w=259&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+//     name:"Fresh chicken",
+//     dis:"this is best and fresh",
+//     price:399,
+//     quantity:"450gm",
+    
+// },
+// {
+//     img:"https://th.bing.com/th/id/OIP.QVrJDna-JH4XjuOAe8gKAQHaFz?w=259&h=203&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+//     name:"gill check chicken",
+//     dis:"just buy it now",
+//     price:287,
+//     quantity:"850gm",
+    
+// },
+// {
+//     img:"https://th.bing.com/th/id/OIP.nK_FrYursw4bEM94vxk6sAHaE8?w=304&h=203&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+//     name:" chicken",
+//     dis:" best and fresh",
+//     price:900,
+//     quantity:"950gm",
+    
+// },
+// {
+//     img:"https://th.bing.com/th/id/OIP.6SLUuN1cJYhzrAlM0hElNwHaFi?w=257&h=192&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+//     name:"Fresh fish",
+//     dis:"Pure from sea,best and fresh",
+//     price:334,
+//     quantity:"150gm",
+    
+// },
+// {
+//     img:"https://th.bing.com/th/id/OIP.SGr9L_tWQQNVWTeDTxDN5wHaFW?w=272&h=198&c=7&r=0&o=5&dpr=1.25&pid=1.7",
+//     name:"Fresh chicken",
+//     dis:"this is best and fresh",
+//     price:122,
+//     quantity:"50gm",
+    
+// }
+
+
+]
+
+class dat{
+   constructor(i,n,d,p,q){
+    this.img=i;
+    this.n=n;
+    this.d=d;
+    this.p=p;
+    this.q=q;
+   }
+}
+
+function get(data){
+
+   data.forEach(function(e){
+    let box=document.createElement("div")
+    box.setAttribute("class","bo")
+
+    let i=document.createElement("img")
+    i.src=e.img;
+    i.setAttribute("class","im")
+
+    let n=document.createElement("p")
+    n.innerText=e.name
+    let d=document.createElement("p")
+    d.innerText=e.dis
+    let p=document.createElement("p")
+    p.innerText=e.price
+    let q=document.createElement("p")
+   q.innerText=e.quantity
+
+   var btn=document.createElement("button")
+           btn.innerText="add bag"
+           btn.setAttribute("class","Addingbag")
+           btn.addEventListener("click", function(){
+               addtobag(elem)
+           })
+
+
+    console.log(i)
+
+    let s1=new dat(i,n,d,p,q)
+
+    box.append(i,n,d,p,q,btn)
+
+    document.getElementById("products").append(box)
+
+   })
+
+}
+
+get(data)
+
+var bag=JSON.parse(localStorage.getItem("addtobag"))  ||  []
+
+function addtobag(elem){
+    bag.push(elem)
+
+    alert("add to bag")
+    localStorage.setItem("addTobag",JSON.stringify(bag))
+    window.location.reload()
+}
+
+
+</script>
