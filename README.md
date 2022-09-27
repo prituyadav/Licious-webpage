@@ -8,9 +8,7 @@ This Project is clone of Licious.in; It is an fresh meat delivery online shop sp
 Individual
 
 ## Teck-stack :
-HTML
-CSS
-Javascript
+HTML | CSS | Javascript
 
 ## Home Page
 ![Screenshot (282)](https://user-images.githubusercontent.com/101568121/192551307-223fc315-05c8-4056-9f6c-4c8390510fad.png)
